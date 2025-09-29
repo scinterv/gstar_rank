@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,58 +10,58 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             overflow: hidden;
         }
-
+        
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 40px;
             text-align: center;
         }
-
+        
         .header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
             font-weight: 700;
         }
-
+        
         .header p {
             font-size: 1.2em;
             opacity: 0.9;
         }
-
+        
         .filters {
             padding: 30px;
             background: #f8f9fa;
             border-bottom: 1px solid #e9ecef;
         }
-
+        
         .filters h3 {
             margin-bottom: 15px;
             color: #495057;
         }
-
+        
         .tag-filters {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
-
+        
         .tag-filter {
             padding: 8px 16px;
             border: 2px solid #667eea;
@@ -73,21 +72,21 @@
             transition: all 0.3s ease;
             font-weight: 500;
         }
-
+        
         .tag-filter:hover {
             background: #667eea;
             color: white;
         }
-
+        
         .tag-filter.active {
             background: #667eea;
             color: white;
         }
-
+        
         .repo-list {
             padding: 30px;
         }
-
+        
         .repo-item {
             display: flex;
             align-items: center;
@@ -96,15 +95,15 @@
             background: white;
             border: 1px solid #e9ecef;
             border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
         }
-
+        
         .repo-item:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
-
+        
         .rank {
             font-size: 1.5em;
             font-weight: bold;
@@ -112,37 +111,37 @@
             margin-right: 25px;
             min-width: 60px;
         }
-
+        
         .repo-info {
             flex: 1;
         }
-
+        
         .repo-info h3 {
             margin-bottom: 8px;
         }
-
+        
         .repo-info h3 a {
             color: #333;
             text-decoration: none;
             font-size: 1.3em;
         }
-
+        
         .repo-info h3 a:hover {
             color: #667eea;
         }
-
+        
         .description {
             color: #666;
             margin-bottom: 10px;
             line-height: 1.5;
         }
-
+        
         .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 5px;
         }
-
+        
         .tag {
             background: #e3f2fd;
             color: #1976d2;
@@ -151,31 +150,31 @@
             font-size: 0.85em;
             font-weight: 500;
         }
-
+        
         .stats {
             text-align: right;
             min-width: 120px;
         }
-
+        
         .stars {
             font-size: 1.2em;
             font-weight: bold;
             color: #ff6b35;
             margin-bottom: 5px;
         }
-
+        
         .updated {
             font-size: 0.9em;
             color: #999;
         }
-
+        
         .no-results {
             text-align: center;
             padding: 60px;
             color: #666;
             font-size: 1.2em;
         }
-
+        
         .last-updated {
             text-align: center;
             padding: 20px;
@@ -183,18 +182,18 @@
             font-size: 0.9em;
             background: #f8f9fa;
         }
-
+        
         @media (max-width: 768px) {
             .repo-item {
                 flex-direction: column;
                 text-align: center;
             }
-
+            
             .rank {
                 margin-right: 0;
                 margin-bottom: 15px;
             }
-
+            
             .stats {
                 text-align: center;
                 margin-top: 15px;
@@ -202,43 +201,200 @@
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <div class="header">
             <h1>⭐ Github Star Rank</h1>
             <p>基于 Star 数量的 GitHub 仓库排名</p>
         </div>
-
+        
         <div class="filters">
             <h3>按标签筛选</h3>
             <div class="tag-filters">
                 <button class="tag-filter active" data-tag="all">全部</button>
+                <button class="tag-filter" data-tag="AI">AI</button>
+<button class="tag-filter" data-tag="C++">C++</button>
+<button class="tag-filter" data-tag="CNCF">CNCF</button>
+<button class="tag-filter" data-tag="Data Lake">Data Lake</button>
+<button class="tag-filter" data-tag="Deep Learning">Deep Learning</button>
+<button class="tag-filter" data-tag="Embeddings">Embeddings</button>
+<button class="tag-filter" data-tag="Extension">Extension</button>
+<button class="tag-filter" data-tag="Facebook">Facebook</button>
+<button class="tag-filter" data-tag="Filtering">Filtering</button>
+<button class="tag-filter" data-tag="Go">Go</button>
+<button class="tag-filter" data-tag="GraphQL">GraphQL</button>
+<button class="tag-filter" data-tag="High Performance">High Performance</button>
+<button class="tag-filter" data-tag="Java">Java</button>
+<button class="tag-filter" data-tag="Open Source">Open Source</button>
+<button class="tag-filter" data-tag="PostgreSQL">PostgreSQL</button>
+<button class="tag-filter" data-tag="Python">Python</button>
+<button class="tag-filter" data-tag="Rust">Rust</button>
+<button class="tag-filter" data-tag="SQL">SQL</button>
+<button class="tag-filter" data-tag="Search Engine">Search Engine</button>
+<button class="tag-filter" data-tag="Semantic Search">Semantic Search</button>
+<button class="tag-filter" data-tag="Similarity Search">Similarity Search</button>
+<button class="tag-filter" data-tag="Vector Database">Vector Database</button>
+<button class="tag-filter" data-tag="Yahoo">Yahoo</button>
+
             </div>
         </div>
-
+        
         <div class="repo-list" id="repo-list">
-            <div class="no-results">
-                暂无数据，请先配置 repos.txt 文件并运行 GitHub Action
+            
+        <div class="repo-item" data-tags="Vector Database,Open Source,CNCF,Go">
+            <div class="rank">#1</div>
+            <div class="repo-info">
+                <h3><a href="https://github.com/milvus-io/milvus" target="_blank">milvus-io/milvus</a></h3>
+                <p class="description">Milvus is a high-performance, cloud-native vector database built for scalable vector ANN search</p>
+                <div class="tags"><span class="tag">Vector Database</span>
+<span class="tag">Open Source</span>
+<span class="tag">CNCF</span>
+<span class="tag">Go</span>
+</div>
+            </div>
+            <div class="stats">
+                <div class="stars">⭐ 37,694</div>
+                <div class="updated">更新: 2025-09-29</div>
             </div>
         </div>
-
+        
+        <div class="repo-item" data-tags="Vector Database,C++,Similarity Search,Facebook">
+            <div class="rank">#2</div>
+            <div class="repo-info">
+                <h3><a href="https://github.com/facebookresearch/faiss" target="_blank">facebookresearch/faiss</a></h3>
+                <p class="description">A library for efficient similarity search and clustering of dense vectors.</p>
+                <div class="tags"><span class="tag">Vector Database</span>
+<span class="tag">C++</span>
+<span class="tag">Similarity Search</span>
+<span class="tag">Facebook</span>
+</div>
+            </div>
+            <div class="stats">
+                <div class="stars">⭐ 37,305</div>
+                <div class="updated">更新: 2025-09-29</div>
+            </div>
+        </div>
+        
+        <div class="repo-item" data-tags="Vector Database,Rust,High Performance,Filtering">
+            <div class="rank">#3</div>
+            <div class="repo-info">
+                <h3><a href="https://github.com/qdrant/qdrant" target="_blank">qdrant/qdrant</a></h3>
+                <p class="description">Qdrant - High-performance, massive-scale Vector Database and Vector Search Engine for the next generation of AI. Also available in the cloud https://cloud.qdrant.io/</p>
+                <div class="tags"><span class="tag">Vector Database</span>
+<span class="tag">Rust</span>
+<span class="tag">High Performance</span>
+<span class="tag">Filtering</span>
+</div>
+            </div>
+            <div class="stats">
+                <div class="stars">⭐ 26,336</div>
+                <div class="updated">更新: 2025-09-29</div>
+            </div>
+        </div>
+        
+        <div class="repo-item" data-tags="Vector Database,Python,Embeddings,AI">
+            <div class="rank">#4</div>
+            <div class="repo-info">
+                <h3><a href="https://github.com/chroma-core/chroma" target="_blank">chroma-core/chroma</a></h3>
+                <p class="description">Open-source search and retrieval database for AI applications.</p>
+                <div class="tags"><span class="tag">Vector Database</span>
+<span class="tag">Python</span>
+<span class="tag">Embeddings</span>
+<span class="tag">AI</span>
+</div>
+            </div>
+            <div class="stats">
+                <div class="stars">⭐ 23,613</div>
+                <div class="updated">更新: 2025-09-29</div>
+            </div>
+        </div>
+        
+        <div class="repo-item" data-tags="Vector Database,PostgreSQL,Extension,SQL">
+            <div class="rank">#5</div>
+            <div class="repo-info">
+                <h3><a href="https://github.com/pgvector/pgvector" target="_blank">pgvector/pgvector</a></h3>
+                <p class="description">Open-source vector similarity search for Postgres</p>
+                <div class="tags"><span class="tag">Vector Database</span>
+<span class="tag">PostgreSQL</span>
+<span class="tag">Extension</span>
+<span class="tag">SQL</span>
+</div>
+            </div>
+            <div class="stats">
+                <div class="stars">⭐ 17,728</div>
+                <div class="updated">更新: 2025-09-29</div>
+            </div>
+        </div>
+        
+        <div class="repo-item" data-tags="Vector Database,GraphQL,Go,Semantic Search">
+            <div class="rank">#6</div>
+            <div class="repo-info">
+                <h3><a href="https://github.com/weaviate/weaviate" target="_blank">weaviate/weaviate</a></h3>
+                <p class="description">Weaviate is an open-source vector database that stores both objects and vectors, allowing for the combination of vector search with structured filtering with the fault tolerance and scalability of a cloud-native database​.</p>
+                <div class="tags"><span class="tag">Vector Database</span>
+<span class="tag">GraphQL</span>
+<span class="tag">Go</span>
+<span class="tag">Semantic Search</span>
+</div>
+            </div>
+            <div class="stats">
+                <div class="stars">⭐ 14,682</div>
+                <div class="updated">更新: 2025-09-29</div>
+            </div>
+        </div>
+        
+        <div class="repo-item" data-tags="Vector Database,Python,Deep Learning,Data Lake">
+            <div class="rank">#7</div>
+            <div class="repo-info">
+                <h3><a href="https://github.com/activeloopai/deeplake" target="_blank">activeloopai/deeplake</a></h3>
+                <p class="description">Database for AI. Store Vectors, Images, Texts, Videos, etc. Use with LLMs/LangChain. Store, query, version, & visualize any AI data. Stream data in real-time to PyTorch/TensorFlow. https://activeloop.ai</p>
+                <div class="tags"><span class="tag">Vector Database</span>
+<span class="tag">Python</span>
+<span class="tag">Deep Learning</span>
+<span class="tag">Data Lake</span>
+</div>
+            </div>
+            <div class="stats">
+                <div class="stars">⭐ 8,842</div>
+                <div class="updated">更新: 2025-09-28</div>
+            </div>
+        </div>
+        
+        <div class="repo-item" data-tags="Vector Database,Java,Search Engine,Yahoo">
+            <div class="rank">#8</div>
+            <div class="repo-info">
+                <h3><a href="https://github.com/vespa-engine/vespa" target="_blank">vespa-engine/vespa</a></h3>
+                <p class="description">AI + Data, online. https://vespa.ai</p>
+                <div class="tags"><span class="tag">Vector Database</span>
+<span class="tag">Java</span>
+<span class="tag">Search Engine</span>
+<span class="tag">Yahoo</span>
+</div>
+            </div>
+            <div class="stats">
+                <div class="stars">⭐ 6,373</div>
+                <div class="updated">更新: 2025-09-28</div>
+            </div>
+        </div>
+        
+        </div>
+        
         <div class="last-updated">
-            最后更新: 等待 GitHub Action 运行...
+            最后更新: 2025-09-29 02:36:08
         </div>
     </div>
 
     <script>
         // 标签筛选功能
         document.querySelectorAll('.tag-filter').forEach(button => {
-            button.addEventListener('click', function () {
+            button.addEventListener('click', function() {
                 // 更新按钮状态
                 document.querySelectorAll('.tag-filter').forEach(btn => btn.classList.remove('active'));
                 this.classList.add('active');
-
+                
                 const selectedTag = this.getAttribute('data-tag');
                 const repoItems = document.querySelectorAll('.repo-item');
-
+                
                 repoItems.forEach(item => {
                     const tags = item.getAttribute('data-tags').split(',');
                     if (selectedTag === 'all' || tags.includes(selectedTag)) {
@@ -247,7 +403,7 @@
                         item.style.display = 'none';
                     }
                 });
-
+                
                 // 检查是否有结果
                 const visibleItems = Array.from(repoItems).filter(item => item.style.display !== 'none');
                 const noResults = document.getElementById('no-results');
@@ -268,5 +424,4 @@
         });
     </script>
 </body>
-
 </html>
