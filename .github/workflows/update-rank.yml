@@ -4,8 +4,8 @@ on:
   push:
     branches: [ main, master ]
   schedule:
-    # 每2小时运行一次
-    - cron: '0 */2 * * *'
+    # 每天运行一次 (UTC 时间 00:00)
+    - cron: '0 0 * * *'
   workflow_dispatch: # 允许手动触发
 
 permissions:

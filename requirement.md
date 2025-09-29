@@ -2,7 +2,7 @@
 
 ## 功能说明
 
-Github 仓库 Star 排名功能，根据仓库的 Star 数量对仓库进行排名。功能完全利用 Github 仓库+Action 完成，排名每 2 小时进行一次刷新，结果可以部署到 Github Page。
+Github 仓库 Star 排名功能，根据仓库的 Star 数量对仓库进行排名。功能完全利用 Github 仓库+Action 完成，排名每天进行一次刷新，结果可以部署到 Github Page。
 
 1. 参与排名的仓库需要在 `repos.txt` 文件中进行配置，每个仓库占一行，格式为 `owner/repo`。
 2. 支持给仓库添加 Tags，每个仓库可以添加多个 Tags，每个 Tag 占一行，格式为 `tag`。
