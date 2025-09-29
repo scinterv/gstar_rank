@@ -1,0 +1,57 @@
+name: Test Star Rank
+
+on:
+  workflow_dispatch: # 仅手动触发
+
+jobs:
+  test-rank:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        pip install requests beautifulsoup4
+        
+    - name: Debug environment
+      run: |
+        echo "=== Environment Debug ==="
+        echo "Current working directory: $(pwd)"
+        echo "Python version: $(python --version)"
+        echo "Pip version: $(pip --version)"
+        echo "Files in root:"
+        ls -la
+        echo "Files in scripts:"
+        ls -la scripts/
+        echo "Repos.txt content:"
+        cat repos.txt
+        echo "=== End Debug ==="
+        
+    - name: Test script execution
+      run: |
+        echo "Testing script execution..."
+        python scripts/update_rank.py
+        echo "Script execution completed"
+        
+    - name: Check results
+      run: |
+        echo "Checking generated files..."
+        ls -la *.html
+        if [ -f "index.html" ]; then
+          echo "✅ index.html generated successfully"
+          echo "File size: $(wc -c < index.html) bytes"
+          echo "First 20 lines:"
+          head -20 index.html
+        else
+          echo "❌ index.html not generated"
+          exit 1
+        fi

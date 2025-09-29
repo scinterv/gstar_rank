@@ -84,9 +84,10 @@ google/tensorflow
 ### 6. 手动触发首次运行
 
 1. 进入 "Actions" 标签页
-2. 选择 "Update Star Rank" 工作流
+2. 选择 "Update Star Rank" 或 "Test Star Rank" 工作流
 3. 点击 "Run workflow" 按钮
 4. 等待运行完成
+5. 查看运行日志，确认脚本执行成功
 
 ### 7. 查看结果
 
@@ -141,20 +142,28 @@ owner2/repo-name2
    - 检查 `repos.txt` 文件格式是否正确
    - 确认仓库名称是否存在拼写错误
    - 查看 Action 运行日志获取详细错误信息
+   - 使用 "Test Star Rank" 工作流进行调试
 
 2. **页面显示"暂无数据"**
 
    - 确认 GitHub Action 已成功运行
    - 检查 `index.html` 文件是否已更新
    - 手动触发一次 Action 运行
+   - 查看 Action 日志中的 "Check generated files" 步骤
 
-3. **GitHub Pages 无法访问**
+3. **Action 只显示 Pages 部署**
+
+   - 确认 "Update Star Rank" 工作流已启用
+   - 检查工作流文件是否在 `.github/workflows/` 目录中
+   - 手动触发 "Test Star Rank" 工作流进行测试
+
+4. **GitHub Pages 无法访问**
 
    - 确认 Pages 功能已启用
    - 检查分支和文件夹设置是否正确
    - 等待几分钟让 Pages 生效
 
-4. **API 限制问题**
+5. **API 限制问题**
    - GitHub API 有速率限制，脚本已添加延迟处理
    - 如果仓库数量很多，可能需要调整延迟时间
 

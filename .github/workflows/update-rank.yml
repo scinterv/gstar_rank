@@ -1,6 +1,8 @@
 name: Update Star Rank
 
 on:
+  push:
+    branches: [ main, master ]
   schedule:
     # 每2小时运行一次
     - cron: '0 */2 * * *'
@@ -27,12 +29,41 @@ jobs:
         
     - name: Run ranking script
       run: |
+        echo "Current working directory: $(pwd)"
+        echo "Files in current directory:"
+        ls -la
+        echo "Files in scripts directory:"
+        ls -la scripts/
+        echo "Checking repos.txt:"
+        head -20 repos.txt
+        echo "Running ranking script..."
+        chmod +x scripts/update_rank.py
         python scripts/update_rank.py
+        echo "Ranking script completed successfully"
+        
+    - name: Check generated files
+      run: |
+        ls -la
+        echo "Checking if index.html was generated:"
+        if [ -f "index.html" ]; then
+          echo "✅ index.html exists"
+          echo "File size: $(wc -c < index.html) bytes"
+          echo "First few lines:"
+          head -10 index.html
+        else
+          echo "❌ index.html not found"
+          exit 1
+        fi
         
     - name: Commit and push changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add index.html
-        git diff --staged --quiet || git commit -m "Update star rankings [skip ci]"
-        git push
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Update star rankings [skip ci]"
+          git push
+          echo "Changes committed and pushed successfully"
+        fi
