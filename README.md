@@ -157,13 +157,19 @@ owner2/repo-name2
    - 检查工作流文件是否在 `.github/workflows/` 目录中
    - 手动触发 "Test Star Rank" 工作流进行测试
 
-4. **GitHub Pages 无法访问**
+4. **权限错误 (403 Forbidden)**
+
+   - 确认仓库设置中 Actions 权限已正确配置
+   - 检查工作流文件中的 `permissions` 设置
+   - 确保 `GITHUB_TOKEN` 有足够的权限
+
+5. **GitHub Pages 无法访问**
 
    - 确认 Pages 功能已启用
    - 检查分支和文件夹设置是否正确
    - 等待几分钟让 Pages 生效
 
-5. **API 限制问题**
+6. **API 限制问题**
    - GitHub API 有速率限制，脚本已添加延迟处理
    - 如果仓库数量很多，可能需要调整延迟时间
 

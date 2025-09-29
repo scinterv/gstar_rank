@@ -3,6 +3,10 @@ name: Test Star Rank
 on:
   workflow_dispatch: # 仅手动触发
 
+permissions:
+  contents: read
+  pages: read
+
 jobs:
   test-rank:
     runs-on: ubuntu-latest
