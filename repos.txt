@@ -1,0 +1,55 @@
+# Github Star Rank 仓库配置
+# 每行一个仓库，格式：owner/repo
+# 在仓库名称下方添加标签，每个标签占一行（需要缩进）
+
+# 向量数据库
+milvus-io/milvus
+  Vector Database
+  Open Source
+  CNCF
+  Go
+
+chroma-core/chroma
+  Vector Database
+  Python
+  Embeddings
+  AI
+
+weaviate/weaviate
+  Vector Database
+  GraphQL
+  Go
+  Semantic Search
+
+activeloopai/deeplake
+  Vector Database
+  Python
+  Deep Learning
+  Data Lake
+
+qdrant/qdrant
+  Vector Database
+  Rust
+  High Performance
+  Filtering
+
+vespa-engine/vespa
+  Vector Database
+  Java
+  Search Engine
+  Yahoo
+
+pgvector/pgvector
+  Vector Database
+  PostgreSQL
+  Extension
+  SQL
+
+facebookresearch/faiss
+  Vector Database
+  C++
+  Similarity Search
+  Facebook
+
+
+
